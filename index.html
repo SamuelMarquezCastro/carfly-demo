@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#171d22" />
+    <meta name="description" content="De stad krijgt een tweede verdieping. Vlieg met Carfly boven de stad." />
+    <title>CARFLY — De stad krijgt een tweede verdieping</title>
+  </head>
+  <body>
+    <div id="world"><div id="cesium"></div></div>
+    <header class="topbar"><a class="brand" href="./" aria-label="Carfly home"><span class="brand-symbol">↗</span> CARFLY<span class="brand-note">FLIGHT LAB / 01</span></a><div class="live"><i></i> SECOND FLOOR EXPERIENCE</div></header>
+    <main id="welcome" class="welcome">
+      <div class="eyebrow"><span></span> EEN NIEUW PERSPECTIEF</div>
+      <h1>De stad krijgt<br>een tweede<br><em>verdieping.</em></h1>
+      <p>Dezelfde straten. Een andere route.<br>Ontdek hoe jouw stad voelt vanuit de lucht.</p>
+      <form id="flight-form"><label for="city">Waar wil je vliegen?</label><div class="input-wrap"><span>⌖</span><input id="city" name="city" value="Mechelen, Belgium" required maxlength="140" autocomplete="off" aria-describedby="welcome-note"></div><button id="start" class="primary" type="submit">Start vlucht <span>↗</span></button></form>
+      <div id="welcome-note" class="welcome-note"></div>
+      <div class="intro-footer"><span>100% ELEKTRISCH</span><span>360° VRIJHEID</span><span>JOUW STAD, VAN BOVEN</span></div>
+    </main>
+    <div id="hud" hidden>
+      <section class="location panel"><div class="eyebrow">VLUCHTLOCATIE</div><h2 id="city-name">Mechelen</h2><div id="mode-label" class="mode-label"></div></section>
+      <div class="hud-actions"><button id="demo-mode" class="secondary" hidden>Conceptstad</button><button id="change-city" class="secondary">Andere stad</button><button id="reset" class="secondary">↺ <span>Reset vlucht</span> <kbd>R</kbd></button></div>
+      <div class="reticle" aria-hidden="true"><span></span><i></i><span></span></div>
+      <section class="telemetry panel"><div><span class="metric-label">SNELHEID</span><strong id="speed">0</strong><small>km/u</small></div><div><span class="metric-label">HOOGTE</span><strong id="altitude">145</strong><small>m · boven startniveau</small></div><div class="flight-state"><i></i> IN FLIGHT</div></section>
+      <section class="controls panel"><div><kbd>W</kbd><kbd>S</kbd><span>Vooruit / achteruit</span></div><div><kbd>A</kbd><kbd>D</kbd><span>Sturen</span></div><div><kbd>SPACE</kbd><kbd>⇧</kbd><span>Stijgen / dalen</span></div><div class="mouse-guide">↔ <span>Sleep met de muis om rond te kijken</span></div></section>
+      <div class="compass"><span>N</span><i id="heading-needle">↑</i><span id="heading">000°</span></div>
+      <div class="mobile-controls" aria-label="Aanraakbesturing"><button data-key="KeyA" aria-label="Links">←</button><button data-key="KeyW" aria-label="Vooruit">↑</button><button data-key="KeyS" aria-label="Achteruit">↓</button><button data-key="KeyD" aria-label="Rechts">→</button><button data-key="Space" aria-label="Stijgen">＋</button><button data-key="ShiftLeft" aria-label="Dalen">−</button></div>
+    </div>
+    <div class="scene-caption" id="scene-caption">CONCEPT CITY <span>·</span> INTERACTIEVE VLUCHTSIMULATIE</div>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+    <div id="fatal" class="fatal" hidden></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
