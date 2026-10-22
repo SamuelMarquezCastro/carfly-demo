@@ -8,7 +8,9 @@ export function stepFlight(state, keys, dt) {
   const forward = Number(keys.has('KeyW')) - Number(keys.has('KeyS'));
   const turn = Number(keys.has('KeyA')) - Number(keys.has('KeyD'));
   const climb = Number(keys.has('Space')) - Number(keys.has('ShiftLeft') || keys.has('ShiftRight'));
-  state.speed += ((forward * 46) - state.speed) * (1 - Math.exp(-dt * 1.4));
+  const braking = keys.has('KeyX');
+  const cruisingSpeed = forward < 0 ? 18 : keys.has('KeyE') ? 72 : 46;
+  state.speed += ((braking ? 0 : forward * cruisingSpeed) - state.speed) * (1 - Math.exp(-dt * (braking ? 5 : 1.4)));
   state.vertical += (climb * 20 - state.vertical) * (1 - Math.exp(-dt * 3));
   state.yaw += turn * dt * 0.7;
   state.bank += (-turn * 0.18 - state.bank) * (1 - Math.exp(-dt * 5));

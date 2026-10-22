@@ -57,9 +57,17 @@ Google's data availability and account eligibility vary by region. In particular
 | Space / Shift | Ascend / descend |
 | Mouse drag | Orbit the third-person camera |
 | R or Reset vlucht | Reset position, heading and speed |
+| E (hold with W) | Boost up to about 259 km/h |
+| X | Brake to a hover |
+| P | Pause / resume the flight |
+| C | Recenter the chase camera |
 | Andere stad | Return to city selection |
 
-Touch devices get on-screen flight buttons. Inputs clear when the window loses focus. Speed is capped at 46 m/s (about 166 km/h); the car damps toward a hover when input stops. Altitude is limited to 120–900 metres above the launch reference. The default launch is 155 metres above that reference. **This is not an accurate above-ground altitude readout or a collision system.** Taller buildings and hills can still intersect the flight path; climb or reset when needed.
+Touch devices get on-screen flight buttons, including boost. The game pauses when the window loses focus or the tab is hidden; press P or choose Verder vliegen to resume. Cruise speed is capped at 46 m/s (about 166 km/h), boost at 72 m/s, and reverse at 18 m/s. The car damps toward a hover when input stops. Altitude is limited to 120–900 metres above the launch reference. The default launch is 155 metres above that reference. **This is not an accurate above-ground altitude readout or a collision system.** Taller buildings and hills can still intersect the flight path; climb or reset when needed.
+
+### Optional City Run
+
+The concept city has a seven-checkpoint route. Fly through the bright blue ring; the route panel shows the next ring's distance, target altitude, relative turn direction, elapsed flight time and progress. The timer begins when you move, stops while paused, and freezes on completion. R resets the route and the vehicle. Checkpoint detection checks the swept flight segment so high-speed crossings count. You can ignore the route and fly freely. These fictional rings are hidden in Google mode and are not presented as a real-world route.
 
 ## Rendering and coordinate integration
 
@@ -84,6 +92,7 @@ The Google path needs working credentials, billing, domain restrictions, network
 
 - `src/main.js`: UI, inputs, animation and chase camera.
 - `src/flight.js`: deterministic flight dynamics.
+- `src/challenge.js`: fictional route and swept checkpoint detection.
 - `src/scene.js`: low-poly car and fictional fallback environment.
 - `src/maps.js`: Google Geocoder, Cesium tiles and coordinate/camera synchronization.
 - `vite.config.js`: Cesium worker/static asset serving and production copying.
